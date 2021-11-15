@@ -33,6 +33,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -149,12 +150,24 @@ img {
 }
 
 .nav-link.active {
+  display: flex;
+  position: relative;
   color: var(--accent-color);
+}
+.nav-link.active::after {
+  position: absolute;
+  bottom: -34px;
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 .nav-link:hover,
 .nav-link:focus {
   color: var(--accent-color);
 }
+
 .nav-contacts {
   display: inline-block;
   font-weight: 500;
@@ -207,6 +220,7 @@ img {
 }
 .hero-btn {
   padding: 10px 32px;
+  border-radius: 4px;
 }
 
 /* features section */
@@ -270,7 +284,24 @@ img {
   display: flex;
   justify-content: space-between;
 }
-
+.functions-wrap {
+  position: relative;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.functions-text {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--hero-text-color);
+  padding: 27px 83px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(47, 48, 58, 0.8);
+}
 /* Team section */
 .section-team {
   background-color: var(--secondary-bg-color);
@@ -519,7 +550,7 @@ img {
   letter-spacing: 0.06em;
   color: var(--title-text-color);
 }
-.examples-list p {
+.examples-text {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.03em;
@@ -534,4 +565,72 @@ img {
 }
 .examples-subtitle {
   margin-bottom: 4px;
+}
+.examples-top-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.examples-top-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  line-height: 1.5;
+  height: 100%;
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.examples-item:hover .examples-top-text {
+  transform: translateY(0);
+}
+
+/* ------MODAL----------------- */
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+}
+
+.modal {
+  position: absolute;
+  width: 528px;
+  min-height: 581px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
